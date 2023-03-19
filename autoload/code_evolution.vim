@@ -11,6 +11,7 @@ function! code_evolution#show_timeline()
     new
     setlocal buftype=nofile
     setlocal bufhidden=wipe
+    setlocal filetype=code_evolution
     setlocal noswapfile
     call setline(1, split(l:timeline, '\n'))
     setlocal nomodified
@@ -36,10 +37,11 @@ function! code_evolution#show_commit(commit_hash, original_file, filetype)
     call setline(1, ["Commit: " . a:commit_hash . " (" . l:commit_info . ")", ""] + split(l:cleaned_diff, '\n'))
     setlocal buftype=nofile
     setlocal bufhidden=wipe
+    setlocal filetype=code_evolution
+    execute 'setlocal filetype=' . a:filetype . '.code_evolution'
     setlocal noswapfile
     setlocal nomodified
     setlocal nomodifiable
-    execute 'setlocal filetype=' . a:filetype
     nnoremap <buffer> <silent> <C-o> :tabclose<CR>
 endfunction
 
