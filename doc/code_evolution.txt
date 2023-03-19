@@ -1,0 +1,43 @@
+*code_evolution.txt* For Neovim          Last Change: 2023-03-19
+
+CONTENTS                                    *code_evolution-contents*
+==============================================================================
+1. Overview              |code_evolution-overview|
+2. Functions             |code_evolution-functions|
+    2.1 show_timeline    |code_evolution-show_timeline|
+    2.2 show_commit      |code_evolution-show_commit|
+
+==============================================================================
+1. Overview                                       *code_evolution-overview*
+
+code_evolution is a Neovim plugin that displays the evolution of a file in a
+Git repository. It shows a timeline of commits for the current file and allows
+you to view the changes introduced in each commit.
+
+==============================================================================
+2. Functions                                      *code_evolution-functions*
+
+2.1 show_timeline                               *code_evolution-show_timeline*
+                                                  *code_evolution#show_timeline()*
+
+code_evolution#show_timeline() function displays a timeline of commits for the
+current file. Each line in the timeline view represents a commit with its
+date, hash, subject and author. Pressing <Enter> on a commit line will open a new
+tab showing the changes introduced in that commit.
+
+Example usage in your Neovim configuration:
+
+    nnoremap <Leader>st :call code_evolution#show_timeline()<CR>
+
+2.2 show_commit                                 *code_evolution-show_commit*
+                                                  *code_evolution#show_commit()*
+
+code_evolution#show_commit() function takes a commit hash, the original file
+path, and its filetype as arguments, and displays the changes introduced in
+the specified commit. It is called internally by the plugin when the user
+presses <Enter> on a commit line in the timeline view.
+
+This function is not intended to be used directly by the user.
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:
