@@ -1,0 +1,1 @@
+command! ShowCurrentFileCommitHistory echo git_integration#get_commit_history_for_current_file()
